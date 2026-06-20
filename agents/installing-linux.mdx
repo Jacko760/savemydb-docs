@@ -1,0 +1,70 @@
+---
+title: "Installing on Linux"
+description: "Install and run the savemydb agent on Linux."
+---
+
+## Requirements
+
+- A 64-bit Linux distribution (Ubuntu, Debian, and similar)
+- `systemd` (used by most modern distributions)
+- `sudo` access
+
+## Steps
+
+<Steps>
+  <Step title="Extract the download">
+    ```bash
+    unzip savemydb-agent-*.zip
+    cd savemydb-agent-*
+    ```
+  </Step>
+  <Step title="Make the agent executable">
+    ```bash
+    chmod +x savemydb-agent install.sh
+    ```
+  </Step>
+  <Step title="Run the installer">
+    ```bash
+    ./install.sh
+    ```
+    This creates the necessary folders, installs a `systemd` service, and starts the agent.
+  </Step>
+  <Step title="Check the dashboard">
+    Within about 30 seconds, your agent appears on the [Agents page](https://app.savemydb.com/agents) with an **online** status.
+  </Step>
+</Steps>
+
+## Running as a service
+
+The agent installs as a `systemd` service named `savemydb-agent`.
+
+```bash
+# Check status
+sudo systemctl status savemydb-agent
+
+# View logs
+sudo journalctl -u savemydb-agent -f
+
+# Stop
+sudo systemctl stop savemydb-agent
+
+# Start
+sudo systemctl start savemydb-agent
+
+# Disable from starting on boot
+sudo systemctl disable savemydb-agent
+```
+
+## Uninstalling
+
+```bash
+sudo systemctl stop savemydb-agent
+sudo systemctl disable savemydb-agent
+sudo rm /etc/systemd/system/savemydb-agent.service
+sudo systemctl daemon-reload
+sudo rm -rf /usr/local/savemydb
+```
+
+<Note>
+  This stops backups from running, but doesn't delete backups already stored — those remain in your chosen storage.
+</Note>

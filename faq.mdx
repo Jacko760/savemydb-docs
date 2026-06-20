@@ -1,0 +1,34 @@
+---
+title: "Frequently Asked Questions"
+---
+
+<AccordionGroup>
+  <Accordion title="Does savemydb ever see my actual database data?">
+    No. The agent runs on your own server, performs the backup locally, encrypts it, and uploads it directly to your chosen storage. savemydb's dashboard never connects to your database directly.
+  </Accordion>
+  <Accordion title="Do I need to open any firewall ports?">
+    No. The agent always connects outward to savemydb — you never need inbound ports, port forwarding, or firewall changes.
+  </Accordion>
+  <Accordion title="Can one agent back up multiple databases?">
+    Yes. Add multiple database connections, all pointing at the same agent.
+  </Accordion>
+  <Accordion title="What happens if my server goes offline during a backup?">
+    The job fails, the failure is logged in your [Backup History](/monitoring/backup-history), and an email notification is sent if you've configured one. The next scheduled run proceeds normally once the server is back online.
+  </Accordion>
+  <Accordion title="Can I use my own S3 bucket instead of savemydb's storage?">
+    Yes. See [Connecting Your Own Storage](/storage/connecting-your-own-storage).
+  </Accordion>
+  <Accordion title="What happens to my backups if I delete a job?">
+    Existing backups already taken aren't deleted. Only future scheduled runs stop.
+  </Accordion>
+  <Accordion title="Is there a limit to how many agents or databases I can have?">
+    Not currently. Add as many agents and database connections as you need.
+  </Accordion>
+  <Accordion title="How do I get notified if a backup fails?">
+    Set a notification email in Settings. See [Notifications](/monitoring/notifications).
+  </Accordion>
+</AccordionGroup>
+
+## Still have a question?
+
+[Contact support](mailto:support@savemydb.com) — we're happy to help.

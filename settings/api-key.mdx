@@ -1,0 +1,24 @@
+---
+title: "API Key"
+description: "The key that links your agents to your account."
+---
+
+Your account has a single API key, used by every agent you install to identify which account it belongs to.
+
+## Finding your API key
+
+Go to the [Download Agent page](https://app.savemydb.com/download-agent) — your API key is shown there, hidden by default. Click **Reveal** to view it, or **Copy** to copy it directly.
+
+## Where it's used
+
+When you download the agent from the dashboard, your API key is automatically included in the generated `config.yaml` file — you don't need to copy or paste it manually in normal use.
+
+You'd only need the raw key if configuring an agent manually, or running multiple agents from a shared configuration template.
+
+<Warning>
+  Keep your API key private. Anyone with it can register new agents under your account and access your tenant's data.
+</Warning>
+
+## If your key is compromised
+
+[Contact support](mailto:support@savemydb.com) to have your API key rotated. Existing agents will need their configuration updated with the new key.

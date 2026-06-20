@@ -1,0 +1,34 @@
+---
+title: "Dropbox Setup"
+description: "Connect a Dropbox account using an access token."
+---
+
+## What you'll need
+
+A Dropbox access token with file read/write access.
+
+## Generating an access token
+
+<Steps>
+  <Step title="Open the Dropbox App Console">
+    Go to the [Dropbox App Console](https://www.dropbox.com/developers/apps) and create a new app, or use an existing one.
+  </Step>
+  <Step title="Set permissions">
+    Under the app's **Permissions** tab, enable `files.content.write` and `files.content.read`.
+  </Step>
+  <Step title="Generate a token">
+    Under the **Settings** tab, generate an access token.
+  </Step>
+</Steps>
+
+## Adding it to savemydb
+
+From the [Storage page](https://app.savemydb.com/config), click **Add Storage**, select **Dropbox**, give it a name, and paste in your access token.
+
+<Warning>
+  Treat your Dropbox access token like a password. Anyone with it can read and write files in the connected account.
+</Warning>
+
+## Token expiration
+
+Depending on how your Dropbox app is configured, access tokens may expire periodically. If backups start failing with an authentication error, generate a new token and update the storage configuration in savemydb.

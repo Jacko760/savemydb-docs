@@ -1,0 +1,111 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "savemydb",
+  "colors": {
+    "primary": "#111111",
+    "light": "#333333",
+    "dark": "#000000"
+  },
+  "favicon": "/favicon.ico",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "creating-an-account"
+            ]
+          },
+          {
+            "group": "Setting Up Backups",
+            "pages": [
+              "agents/overview",
+              "agents/downloading-the-agent",
+              "agents/installing-windows",
+              "agents/installing-mac",
+              "agents/installing-linux",
+              "agents/agent-status"
+            ]
+          },
+          {
+            "group": "Databases",
+            "pages": [
+              "databases/adding-a-database",
+              "databases/supported-databases",
+              "databases/editing-a-connection"
+            ]
+          },
+          {
+            "group": "Storage",
+            "pages": [
+              "storage/managed-storage",
+              "storage/connecting-your-own-storage",
+              "storage/s3-setup",
+              "storage/dropbox-setup"
+            ]
+          },
+          {
+            "group": "Backup Jobs",
+            "pages": [
+              "jobs/creating-a-job",
+              "jobs/schedules",
+              "jobs/running-a-job-manually",
+              "jobs/editing-and-deleting-jobs"
+            ]
+          },
+          {
+            "group": "Monitoring",
+            "pages": [
+              "monitoring/dashboard-overview",
+              "monitoring/backup-history",
+              "monitoring/notifications"
+            ]
+          },
+          {
+            "group": "Account & Settings",
+            "pages": [
+              "settings/api-key",
+              "settings/notification-email",
+              "settings/account-management"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/agent-not-connecting",
+              "troubleshooting/backup-failures",
+              "troubleshooting/common-errors"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "faq"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Dashboard",
+        "href": "https://app.savemydb.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Sign Up Free",
+      "href": "https://app.savemydb.com/signup"
+    }
+  },
+  "footer": {
+    "socials": {}
+  }
+}

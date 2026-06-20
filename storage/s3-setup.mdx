@@ -1,0 +1,48 @@
+---
+title: "S3 Setup"
+description: "Connect an AWS S3 bucket or S3-compatible storage."
+---
+
+## What you'll need
+
+- An S3 bucket (or S3-compatible bucket, such as MinIO)
+- An access key with read/write permissions to that bucket
+
+## Steps
+
+<Steps>
+  <Step title="Create or choose a bucket">
+    In your AWS account (or other S3-compatible provider), create a bucket dedicated to backups, or use an existing one.
+  </Step>
+  <Step title="Create an access key">
+    Generate an Access Key ID and Secret Access Key with permissions scoped to that bucket.
+  </Step>
+  <Step title="Add the storage in savemydb">
+    From the [Storage page](https://app.savemydb.com/config), click **Add Storage**, select **S3**, and fill in:
+
+    | Field | Description |
+    |---|---|
+    | Name | A label for this storage destination. |
+    | Access Key ID | From the key you created. |
+    | Secret Access Key | From the key you created. |
+    | Region | The bucket's region, for example `us-east-1`. |
+    | Bucket | The bucket name. |
+    | Endpoint | Optional — only needed for non-AWS S3-compatible providers like MinIO. |
+  </Step>
+</Steps>
+
+## Minimum required permissions
+
+The access key only needs the following actions on the target bucket:
+
+```json
+{
+  "Effect": "Allow",
+  "Action": ["s3:PutObject", "s3:GetObject", "s3:ListBucket"],
+  "Resource": ["arn:aws:s3:::your-bucket-name", "arn:aws:s3:::your-bucket-name/*"]
+}
+```
+
+<Tip>
+  Scoping the access key to only these actions, rather than full account access, limits exposure if the key is ever compromised.
+</Tip>

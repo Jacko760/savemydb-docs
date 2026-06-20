@@ -1,0 +1,15 @@
+---
+title: "Common Errors"
+description: "Quick reference for specific error messages."
+---
+
+| Error | Cause | Fix |
+|---|---|---|
+| `database "x" does not exist` | The database name in your connection doesn't match a real database | Check for typos in [your connection settings](/databases/editing-a-connection) |
+| `connect db: ping postgres: ...` | The agent couldn't reach the database | Confirm host, port, and that the database server is running and reachable |
+| `exec format error` | Wrong agent build downloaded for your CPU architecture | Re-download using the [correct build](/agents/downloading-the-agent) for your OS and architecture |
+| `Agent not connected` | A change was made in the dashboard, but the target agent is offline | Bring the agent back online — changes apply automatically once it reconnects |
+| `Invalid or expired verification token` | The email verification link was already used or has expired | Sign up again, or [contact support](mailto:support@savemydb.com) for a new link |
+| `Email already registered` | An account already exists with that email | [Sign in](https://app.savemydb.com/login) instead, or use **Forgot password?** |
+
+If you run into an error not listed here, [contact support](mailto:support@savemydb.com) with the exact message shown.

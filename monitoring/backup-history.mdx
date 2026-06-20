@@ -1,0 +1,31 @@
+---
+title: "Backup History"
+description: "Review every backup run, past and present."
+---
+
+The [Backup History page](https://app.savemydb.com/backups) lists every backup run across all your jobs, most recent first.
+
+## What's shown
+
+| Column | Description |
+|---|---|
+| Database | Which database the backup was for. |
+| Status | `success`, `failed`, or `running`. |
+| Started / duration | When the backup began and how long it took. |
+| File size | Size of the resulting backup file. |
+| Error | If failed, the specific error returned. |
+
+## Investigating a failure
+
+Click on a failed run to see its full error message. Common causes include:
+
+- The database doesn't exist, or the name was typed incorrectly
+- The database credentials are no longer valid
+- The agent lost its connection partway through the backup
+- The storage destination rejected the upload, for example due to invalid credentials
+
+See [Backup Failures](/troubleshooting/backup-failures) for help resolving specific errors.
+
+## Retention
+
+savemydb doesn't currently delete old backup history entries automatically. If you've configured your own S3 or Dropbox storage, you can set retention rules directly with your storage provider to manage how long backup files themselves are kept.

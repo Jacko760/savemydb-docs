@@ -1,0 +1,39 @@
+---
+title: "Notifications"
+description: "Get an email when a backup fails."
+---
+
+savemydb can email you the moment a backup job fails, so you find out before you actually need the backup.
+
+## Setting your notification email
+
+<Steps>
+  <Step title="Open settings">
+    Go to **Settings** in the sidebar.
+  </Step>
+  <Step title="Set your notification email">
+    Enter the email address that should receive failure alerts. This defaults to your account's login email, but you can change it — for example, to a shared team inbox.
+  </Step>
+  <Step title="Save">
+    Click **Save**. Notifications take effect immediately for any job that fails afterward.
+  </Step>
+</Steps>
+
+## What triggers a notification
+
+savemydb sends an email when a backup job's status is `failed`. Successful backups don't generate a notification, to keep your inbox focused on what actually needs attention.
+
+## What the email includes
+
+- The name of the job that failed
+- The specific error message returned
+
+<Tip>
+  The error message is usually enough to diagnose the issue directly — see [Backup Failures](/troubleshooting/backup-failures) for common causes and fixes.
+</Tip>
+
+## Not receiving notifications?
+
+- Confirm a notification email is actually set in Settings — it's empty by default until you save one
+- Check your spam folder
+- Confirm the job that failed belongs to the same account where you set the notification email

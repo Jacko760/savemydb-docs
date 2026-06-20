@@ -1,0 +1,74 @@
+---
+title: "Installing on macOS"
+description: "Install and run the savemydb agent on Mac."
+---
+
+## Requirements
+
+- macOS 12 or later
+- Terminal access
+- Administrator (sudo) access
+
+## Steps
+
+<Steps>
+  <Step title="Extract the download">
+    Double-click the downloaded `.zip` file to extract it.
+  </Step>
+  <Step title="Open Terminal in that folder">
+    Open Terminal, then navigate to the extracted folder:
+    ```bash
+    cd ~/Downloads/savemydb-agent-yourname-mac
+    ```
+  </Step>
+  <Step title="Make the agent executable">
+    ```bash
+    chmod +x savemydb-agent
+    ```
+  </Step>
+  <Step title="Remove the macOS quarantine flag">
+    macOS blocks downloaded executables by default. Remove the flag with:
+    ```bash
+    xattr -d com.apple.quarantine savemydb-agent
+    ```
+    <Note>
+      If this command says "No such xattr," that's fine — it just means the flag wasn't set, and you can continue.
+    </Note>
+  </Step>
+  <Step title="Run the installer">
+    ```bash
+    chmod +x install.sh
+    ./install.sh
+    ```
+    You'll be prompted for your password, since installing as a background service requires administrator access.
+  </Step>
+  <Step title="Check the dashboard">
+    Within about 30 seconds, your agent appears on the [Agents page](https://app.savemydb.com/agents) with an **online** status.
+  </Step>
+</Steps>
+
+## Running as a service
+
+The installer registers the agent as a `launchd` service, so it starts automatically on boot and keeps running in the background.
+
+```bash
+# Check status
+sudo launchctl list | grep savemydb
+
+# Stop
+sudo launchctl stop savemydb-agent
+
+# Start
+sudo launchctl start savemydb-agent
+```
+
+## Uninstalling
+
+```bash
+sudo launchctl unload /Library/LaunchDaemons/savemydb-agent.plist
+sudo rm -rf /usr/local/savemydb
+```
+
+<Note>
+  This stops backups from running, but doesn't delete backups already stored — those remain in your chosen storage.
+</Note>

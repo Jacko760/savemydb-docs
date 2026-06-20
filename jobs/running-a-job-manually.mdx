@@ -1,0 +1,20 @@
+---
+title: "Running a Job Manually"
+description: "Trigger a backup job immediately, outside its schedule."
+---
+
+You don't need to wait for a job's scheduled time to run it. From the [Jobs page](https://app.savemydb.com/jobs), click the **Run now** button next to any job.
+
+## When to use this
+
+- To confirm a newly created job is configured correctly
+- Before making a risky change to a database
+- To get an up-to-date backup without waiting for the next scheduled run
+
+## Checking the result
+
+After triggering a manual run, check the [Backup History page](https://app.savemydb.com/backups) to see whether it succeeded. A manual run shows up alongside scheduled runs, with the same status and error details if something went wrong.
+
+<Tip>
+  Running a job manually doesn't change its schedule — the next scheduled run still happens at its normal time.
+</Tip>

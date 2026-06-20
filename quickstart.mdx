@@ -1,0 +1,79 @@
+---
+title: "Quickstart"
+description: "Go from signup to your first scheduled backup in under five minutes."
+---
+
+This guide walks through the entire setup, start to finish.
+
+## 1. Create your account
+
+Go to [app.savemydb.com/signup](https://app.savemydb.com/signup) and fill in your company name, your name, work email, and a password.
+
+<Note>
+  You'll receive a verification email. You must click the link inside before you can sign in — check your spam folder if it doesn't arrive within a minute or two.
+</Note>
+
+## 2. Download the agent
+
+Once you're signed in, a setup wizard opens automatically. The first step lets you download the savemydb agent.
+
+- Give your agent a name (for example, the server's hostname)
+- Your operating system is detected automatically — confirm it's correct
+- Click **Download agent**
+
+This downloads a `.zip` file containing the agent, a pre-filled configuration file, and an install script.
+
+<Tip>
+  See [Downloading the Agent](/agents/downloading-the-agent) for details on each operating system.
+</Tip>
+
+## 3. Install and run the agent
+
+Extract the zip on the server where your database runs, then:
+
+<Tabs>
+  <Tab title="Windows">
+    Right-click `install.bat` and choose **Run as administrator**.
+  </Tab>
+  <Tab title="macOS / Linux">
+    Open a terminal in the extracted folder and run:
+    ```bash
+    chmod +x savemydb-agent
+    ./install.sh
+    ```
+  </Tab>
+</Tabs>
+
+Within about 30 seconds, the agent connects to savemydb and the wizard automatically moves to the next step.
+
+## 4. Add your database
+
+Fill in your database's connection details — host, port, database name, username, and password. Select the agent you just installed.
+
+<Warning>
+  The agent must be running and connected before you can use this database in a backup job.
+</Warning>
+
+## 5. Choose your storage
+
+You have two options:
+
+- **savemydb Managed Storage** — fully managed, no setup, recommended if you're getting started
+- **Connect your own storage** — bring your own S3 or Dropbox account
+
+## 6. Create your first job
+
+Give the job a name, pick a schedule, and select the database and storage you just configured. Click **Create job & finish**.
+
+That's it — your database is now backed up automatically on the schedule you chose.
+
+## What's next
+
+<CardGroup cols={2}>
+  <Card title="Understand schedules" icon="clock" href="/jobs/schedules">
+    Learn how cron schedules work and see common examples.
+  </Card>
+  <Card title="Set up notifications" icon="bell" href="/monitoring/notifications">
+    Get an email the moment a backup fails.
+  </Card>
+</CardGroup>

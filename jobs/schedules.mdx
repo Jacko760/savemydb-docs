@@ -1,0 +1,43 @@
+---
+title: "Schedules"
+description: "How backup job schedules work."
+---
+
+savemydb uses cron-style schedules, giving you full control over exactly when backups run.
+
+## Quick presets
+
+The job creation form includes common presets you can use without writing a schedule manually:
+
+| Preset | Runs |
+|---|---|
+| Daily at 2am | Once a day, at 2:00 AM |
+| Every 6 hours | At 12am, 6am, 12pm, and 6pm |
+| Weekly | Once a week, Sunday at midnight |
+
+## Custom schedules
+
+For anything else, use the visual schedule builder, or switch to custom mode and enter a schedule directly.
+
+Schedules use six fields, in this order:
+
+```
+second  minute  hour  day  month  weekday
+```
+
+<Warning>
+  Always set the seconds field to `0` unless you specifically need sub-minute precision. A schedule like `* */2 * * * *` runs every single second during even-numbered minutes — almost never what's intended. The correct schedule for "every 2 minutes" is `0 */2 * * * *`.
+</Warning>
+
+## Examples
+
+| Schedule | Runs |
+|---|---|
+| `0 0 2 * * *` | Daily at 2:00 AM |
+| `0 0 */6 * * *` | Every 6 hours |
+| `0 30 9 * * 1-5` | Weekdays at 9:30 AM |
+| `0 0 0 1 * *` | Midnight on the 1st of every month |
+
+## Choosing a frequency
+
+For most production databases, daily backups are a reasonable starting point. Increase frequency for databases with high write volume where losing more than a day of data would be costly, and reduce it for databases that change infrequently, to limit storage usage.

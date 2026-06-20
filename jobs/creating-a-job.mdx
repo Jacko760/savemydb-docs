@@ -1,0 +1,38 @@
+---
+title: "Creating a Backup Job"
+description: "Schedule automatic backups for a database."
+---
+
+A backup job ties together a database, a storage destination, and a schedule.
+
+## Before you start
+
+You'll need:
+
+- An online agent ([check status](/agents/agent-status))
+- A configured database connection ([add one](/databases/adding-a-database))
+- A storage destination ([set one up](/storage/managed-storage))
+
+## Creating a job
+
+From the [Jobs page](https://app.savemydb.com/jobs), click **New Job** and fill in:
+
+| Field | Description |
+|---|---|
+| Job name | A label to identify this job. |
+| Type | `Backup` for regular database backups. |
+| Schedule | How often the job runs — see [Schedules](/jobs/schedules). |
+| Agent | Which agent runs this job. |
+| DB Connection | Which database to back up. |
+| Storage | Where to store the resulting backup. |
+
+Click **Create Job**. The job is now active and will run automatically according to its schedule.
+
+## Job status
+
+| Status | Meaning |
+|---|---|
+| **Active** | The job is enabled and will run on schedule. |
+| **Disabled** | The job won't run until re-enabled. |
+
+You can toggle a job between active and disabled at any time from the Jobs page.

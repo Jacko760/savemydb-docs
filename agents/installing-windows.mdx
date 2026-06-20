@@ -1,0 +1,58 @@
+---
+title: "Installing on Windows"
+description: "Install and run the savemydb agent on Windows."
+---
+
+## Requirements
+
+- Windows 10, 11, or Windows Server, 64-bit
+- Administrator access
+
+## Steps
+
+<Steps>
+  <Step title="Extract the download">
+    Right-click the downloaded `.zip` file and choose **Extract All**.
+  </Step>
+  <Step title="Run the installer">
+    Right-click `install.bat` and choose **Run as administrator**. Windows may show a security prompt — click **Yes** to allow it.
+  </Step>
+  <Step title="Wait for confirmation">
+    The installer creates the necessary folders, registers the agent as a Windows service, and starts it automatically. You'll see a confirmation message when it's done.
+  </Step>
+  <Step title="Check the dashboard">
+    Within about 30 seconds, your agent appears on the [Agents page](https://app.savemydb.com/agents) with an **online** status.
+  </Step>
+</Steps>
+
+## Running as a service
+
+The agent installs as a Windows service named `savemydbAgent`. This means it starts automatically when the server boots and keeps running in the background — you don't need to keep a terminal window open.
+
+You can manage it like any other Windows service:
+
+```powershell
+# Check status
+sc query savemydbAgent
+
+# Stop
+sc stop savemydbAgent
+
+# Start
+sc start savemydbAgent
+```
+
+## Uninstalling
+
+To remove the agent, stop and delete the service, then delete the install folder:
+
+```powershell
+sc stop savemydbAgent
+sc delete savemydbAgent
+```
+
+Then delete the `savemydb` folder from `Program Files`.
+
+<Note>
+  This stops backups from running, but doesn't delete backups already stored — those remain in your chosen storage.
+</Note>

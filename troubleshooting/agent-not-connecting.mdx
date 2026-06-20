@@ -1,0 +1,43 @@
+---
+title: "Agent Not Connecting"
+description: "Fix an agent stuck offline or never appearing."
+---
+
+## Agent never appears in the dashboard
+
+<Steps>
+  <Step title="Confirm the agent is actually running">
+    See the installation guide for your operating system to check the agent's service status.
+  </Step>
+  <Step title="Check the agent's logs">
+    <Tabs>
+      <Tab title="Windows">
+        Check the log file inside the install folder, or view Windows Event Viewer for the `savemydbAgent` service.
+      </Tab>
+      <Tab title="macOS">
+        ```bash
+        sudo launchctl list | grep savemydb
+        ```
+      </Tab>
+      <Tab title="Linux">
+        ```bash
+        sudo journalctl -u savemydb-agent -f
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Check for a network or firewall block">
+    The agent needs outbound HTTPS access. If your server is behind a restrictive firewall or proxy, confirm outbound connections to `savemydb.onrender.com` on port 443 are allowed.
+  </Step>
+  <Step title="Verify the API key">
+    Open the agent's `config.yaml` and confirm the `api_key` field matches the key shown on your [Download Agent page](https://app.savemydb.com/download-agent). A mismatched key causes the agent to be rejected silently.
+  </Step>
+</Steps>
+
+## Agent shows offline after working previously
+
+This usually means the agent's process stopped, or the server it's running on lost network connectivity or was restarted. Restarting the agent's service (see your OS's installation guide) typically resolves this within a few seconds.
+
+## Still stuck?
+
+[Contact support](mailto:support@savemydb.com) with your agent's name and approximately when it last connected successfully.

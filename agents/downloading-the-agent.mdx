@@ -1,0 +1,43 @@
+---
+title: "Downloading the Agent"
+description: "Get the right agent build for your server."
+---
+
+You can download the agent from two places in the dashboard:
+
+- The setup wizard, shown automatically on your first login
+- The **Download Agent** page in the sidebar, anytime
+
+## Choosing the right build
+
+savemydb detects your operating system automatically and highlights the matching option, but you can select manually if needed.
+
+| Build | Use for |
+|---|---|
+| Windows | Windows Server or Windows 10/11, 64-bit |
+| Mac (Apple Silicon) | M1, M2, or M3 Macs |
+| Mac (Intel) | Older Intel-based Macs |
+| Linux | Ubuntu, Debian, or most other 64-bit Linux distributions |
+
+<Warning>
+  Downloading the wrong build for your CPU architecture (for example, an Intel build on an Apple Silicon Mac) will fail to run with an "exec format error." If you see this, re-download using the correct option.
+</Warning>
+
+## What's in the download
+
+Each download is a `.zip` file containing:
+
+- The agent program itself
+- `config.yaml` — pre-filled with your account's API key
+- An install script (`install.bat` for Windows, `install.sh` for Mac/Linux)
+- A short `README.txt`
+
+<Note>
+  The configuration file is generated specifically for your account at the moment you download it. Don't share this file — anyone with it could register an agent under your account.
+</Note>
+
+## Next step
+
+<Card title="Install the agent" icon="play" href="/agents/installing-windows">
+  Follow the installation guide for your operating system.
+</Card>

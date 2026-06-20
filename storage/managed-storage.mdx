@@ -1,0 +1,39 @@
+---
+title: "savemydb Managed Storage"
+description: "Fully managed cloud storage for your backups, no setup required."
+---
+
+savemydb Managed Storage stores your encrypted backups on savemydb's own cloud infrastructure. There's nothing to configure — no cloud account, no credentials, no buckets to create.
+
+## Enabling it
+
+From the [Storage page](https://app.savemydb.com/config), click **Enable savemydb Storage**, then provide:
+
+- A database name, used to organize your backups within your storage path
+- Which agent this storage should be available to
+
+## What it costs
+
+| | |
+|---|---|
+| Price | $1 per 100 GB per month |
+| Free tier | First 100 GB free during beta |
+
+## Where your data is stored
+
+Backups are stored on Backblaze B2, an S3-compatible cloud storage provider, isolated per tenant. Your backups are never visible to or accessible by other savemydb customers.
+
+## Security
+
+<CardGroup cols={2}>
+  <Card title="AES-256 encryption" icon="lock">
+    Backups are encrypted before upload and remain encrypted at rest.
+  </Card>
+  <Card title="Tenant isolation" icon="shield">
+    Each account's backups are stored in a separate, isolated path.
+  </Card>
+</CardGroup>
+
+## Disabling
+
+You can disable managed storage at any time from the Storage page. This stops new backups from being stored there — existing backups remain in place and billable until removed.

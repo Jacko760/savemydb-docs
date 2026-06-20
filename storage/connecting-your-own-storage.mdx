@@ -1,0 +1,29 @@
+---
+title: "Connecting Your Own Storage"
+description: "Use your own S3 or Dropbox account for backups."
+---
+
+If you'd rather store backups in your own cloud storage account, savemydb supports S3 (and S3-compatible providers) and Dropbox.
+
+## Why bring your own storage
+
+- Keep backups within your own existing cloud infrastructure and billing
+- Use storage you already manage and monitor
+- Meet specific compliance or data-residency requirements
+
+## Setting it up
+
+From the [Storage page](https://app.savemydb.com/config), click **Add Storage** and choose a provider:
+
+<CardGroup cols={2}>
+  <Card title="S3 setup" icon="aws" href="/storage/s3-setup">
+    AWS S3 or any S3-compatible provider, including MinIO.
+  </Card>
+  <Card title="Dropbox setup" icon="dropbox" href="/storage/dropbox-setup">
+    Connect a Dropbox account using an access token.
+  </Card>
+</CardGroup>
+
+## Multiple storage destinations
+
+You can configure more than one storage destination and choose which one each backup job uses. This is useful if you want different retention or redundancy strategies for different databases.

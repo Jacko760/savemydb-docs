@@ -1,0 +1,27 @@
+---
+title: "Editing and Deleting Jobs"
+description: "Update a job's configuration or remove it entirely."
+---
+
+## Editing a job
+
+From the [Jobs page](https://app.savemydb.com/jobs), click the edit icon next to a job to change its name, schedule, database connection, or storage destination.
+
+<Warning>
+  Changing a job's database connection or storage destination only affects future runs. Past backups taken before the change remain associated with their original configuration and continue to restore correctly.
+</Warning>
+
+## Disabling vs. deleting
+
+| Action | Effect |
+|---|---|
+| Disable | Stops the job from running, but keeps its configuration and history. Re-enable anytime. |
+| Delete | Permanently removes the job and its configuration. |
+
+<Note>
+  Deleting a job does not delete backups already taken — those remain in storage and stay visible in [Backup History](/monitoring/backup-history).
+</Note>
+
+## Deleting a job
+
+Click the delete icon next to a job, then confirm. This cannot be undone — if you only want to pause backups temporarily, disable the job instead.

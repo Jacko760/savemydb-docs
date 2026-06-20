@@ -1,0 +1,36 @@
+---
+title: "Agent Overview"
+description: "What the savemydb agent does and how it connects."
+---
+
+The savemydb agent is a small program you run on the same server as your database. It's responsible for actually performing backups — connecting to your database, compressing and encrypting the data, and uploading it to your chosen storage.
+
+## Why an agent?
+
+Your database credentials and data never need to leave your own infrastructure except as an encrypted file headed to your chosen storage. savemydb's dashboard never connects to your database directly — only your agent does, from inside your own network.
+
+## How it connects
+
+The agent always initiates the connection outward to savemydb — you never need to open inbound ports, configure port forwarding, or adjust firewall rules. This works the same way whether your server is on a cloud provider, behind a corporate firewall, or on a home network.
+
+```
+Your server (agent)  ──────────▶  savemydb
+                      (outbound only, always)
+```
+
+## One agent, multiple databases
+
+A single agent can manage backups for multiple databases on the same server. You don't need to install a separate agent for each database — just add multiple database connections pointing at the same agent.
+
+## Multiple agents
+
+If you have databases on different servers, install one agent per server. All agents under your account appear together on the [Agents page](https://app.savemydb.com/agents) of your dashboard.
+
+<CardGroup cols={2}>
+  <Card title="Download the agent" icon="download" href="/agents/downloading-the-agent">
+    Get the right build for your operating system.
+  </Card>
+  <Card title="Check agent status" icon="signal" href="/agents/agent-status">
+    Understand what online, idle, and offline mean.
+  </Card>
+</CardGroup>

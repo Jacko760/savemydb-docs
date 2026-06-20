@@ -1,0 +1,49 @@
+---
+title: "Adding a Database"
+description: "Connect a database to an agent."
+---
+
+<Note>
+  An agent must be installed and online before you can add a database connection for it. See [Downloading the Agent](/agents/downloading-the-agent) if you haven't installed one yet.
+</Note>
+
+## Add a connection
+
+From the [Database Servers page](https://app.savemydb.com/db-connections), click **Add Server** and fill in:
+
+| Field | Description |
+|---|---|
+| Connection name | A label to identify this database in your dashboard. |
+| Database type | PostgreSQL, MySQL, MongoDB, or SQL Server. |
+| Host | The hostname or IP address the agent should connect to — usually `localhost` if the database is on the same server as the agent. |
+| Port | Defaults to the standard port for the selected database type. |
+| Database name | The specific database to back up. |
+| Username / Password | Credentials with read access to the database. |
+| Agent | Which installed agent should handle this connection. |
+
+<Tip>
+  Credentials are encrypted before being sent and are never displayed in plain text again after saving.
+</Tip>
+
+## Required database permissions
+
+The credentials you provide need enough access to read and export the database. The specific permissions depend on your database type:
+
+<Tabs>
+  <Tab title="PostgreSQL">
+    The user needs `CONNECT` on the database and `SELECT` on all tables you want backed up. A read-only role is sufficient.
+  </Tab>
+  <Tab title="MySQL">
+    The user needs `SELECT`, `LOCK TABLES`, and `SHOW VIEW` privileges on the target database.
+  </Tab>
+  <Tab title="MongoDB">
+    The user needs the built-in `read` role on the target database.
+  </Tab>
+  <Tab title="SQL Server">
+    The user needs `db_backupoperator` or equivalent permissions on the target database.
+  </Tab>
+</Tabs>
+
+## Testing the connection
+
+After adding a database, it's worth running a job manually once to confirm everything is configured correctly. See [Running a Job Manually](/jobs/running-a-job-manually).

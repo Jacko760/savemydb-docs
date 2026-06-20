@@ -1,0 +1,22 @@
+---
+title: "Editing a Connection"
+description: "Update or remove a database connection."
+---
+
+## Editing
+
+From the [Database Servers page](https://app.savemydb.com/db-connections), click the edit icon next to a connection to update its details — including host, port, credentials, or which agent it's assigned to.
+
+<Warning>
+  Changing the database name or host on an existing connection affects all future backup jobs using it. Past backups already taken aren't affected.
+</Warning>
+
+## Deleting
+
+Click the delete icon to remove a connection. This also removes it from your agent.
+
+<Note>
+  Deleting a database connection does not delete any backups already stored. It only stops future backups from being taken using that connection.
+</Note>
+
+Before deleting, make sure no active jobs depend on this connection — see [Editing and Deleting Jobs](/jobs/editing-and-deleting-jobs).

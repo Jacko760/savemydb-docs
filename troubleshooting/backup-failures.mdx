@@ -1,0 +1,34 @@
+---
+title: "Backup Failures"
+description: "Diagnose and fix a failed backup job."
+---
+
+Start by checking the exact error message on the [Backup History page](https://app.savemydb.com/backups) — it usually points directly at the cause.
+
+## Common causes
+
+<AccordionGroup>
+  <Accordion title="Database does not exist">
+    The database name in your connection settings doesn't match an actual database on the server. Double-check for typos in [your database connection](/databases/editing-a-connection).
+  </Accordion>
+  <Accordion title="Authentication failed">
+    The username or password in your database connection is incorrect, or has since changed. Update the connection with current credentials.
+  </Accordion>
+  <Accordion title="Connection refused / timeout">
+    The agent couldn't reach the database server. Confirm the host and port are correct, and that the database server allows connections from the agent's machine.
+  </Accordion>
+  <Accordion title="Storage upload failed">
+    The backup itself succeeded, but uploading it to storage failed. Check that your storage credentials (S3 keys or Dropbox token) are still valid — see [Connecting Your Own Storage](/storage/connecting-your-own-storage).
+  </Accordion>
+  <Accordion title="Insufficient permissions">
+    The database user doesn't have enough access to read all the data needed for a backup. See the permissions required for your database type in [Adding a Database](/databases/adding-a-database).
+  </Accordion>
+</AccordionGroup>
+
+## Testing after a fix
+
+After correcting the issue, use [Run now](/jobs/running-a-job-manually) to confirm the fix worked, rather than waiting for the next scheduled run.
+
+## Getting alerted automatically
+
+Set up [notifications](/monitoring/notifications) so you're emailed the moment any future failure happens, instead of needing to check the dashboard manually.

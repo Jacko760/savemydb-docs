@@ -1,0 +1,34 @@
+---
+title: "Understanding Agent Status"
+description: "What online, idle, and offline mean for your agents."
+---
+
+The [Agents page](https://app.savemydb.com/agents) shows a live status for each installed agent.
+
+| Status | Meaning |
+|---|---|
+| **Online** | The agent is running and connected to savemydb. Backup jobs can run normally. |
+| **Idle** | The agent registered recently but hasn't sent activity in a while. Usually resolves on its own. |
+| **Offline** | The agent isn't currently connected. Backup jobs assigned to it won't run until it reconnects. |
+
+## If an agent shows offline
+
+This usually means one of the following:
+
+- The server the agent is installed on is powered off or restarting
+- The agent's background service has stopped
+- The server's network connection is down
+
+<Steps>
+  <Step title="Check the service is running">
+    See the installation guide for your operating system to check the agent's service status.
+  </Step>
+  <Step title="Check network connectivity">
+    Confirm the server can reach the internet — the agent needs an outbound connection to savemydb.
+  </Step>
+  <Step title="Restart the service">
+    Restarting the agent's service usually re-establishes the connection within a few seconds.
+  </Step>
+</Steps>
+
+If the agent still won't reconnect, see [Agent Not Connecting](/troubleshooting/agent-not-connecting).

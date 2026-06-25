@@ -107,5 +107,33 @@
   },
   "footer": {
     "socials": {}
+  },
+  "logo": {
+    "light": "/logo/savemydb.png",
+    "dark": "/logo/savemydb-dark.png",
+    "href": "https://savemydb.com"
+  },
+  "appearance": {
+    "default": "system",
+    "strict": false
+  },
+  "background": {
+    "decoration": "gradient",
+    "color": {
+      "light": "#ffffff",
+      "dark": "#000000"
+    }
+  },
+  "fonts": {
+    "family": "Inter",
+    "weight": 400,
+    "format": "woff2"
+  },
+  "icons": {
+    "library": "fontawesome"
+  },
+  "styling": {
+    "eyebrows": "section",
+    "codeblocks": "system"
   }
 }
